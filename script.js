@@ -90,11 +90,7 @@ vct.addEventListener('click', () => {
   vct.classList.add('is-active');
   vbt.classList.remove('is-active');
 })
-function getRandom(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min) + min); 
-}
+
   function componentToHex(c) {
     var hex = c.toString(16);
     return hex.length == 1 ? "0" + hex : hex;
@@ -233,14 +229,17 @@ function getRandom(min, max) {
     "Мирон",
     "ФОШЫРВОФЫИВРГФЫИВ",
     "МАТВЕЙ МОЛОДЕЦ, если это выпадет",
-    "алкашня"
+    "алкашня",
+    "Я не Европа с НАТО, но пятый год, как я веду русский хип-хоп на запад",
+    "Я всего лишь писатель, моё дело писать — и не ебёт!"
   ]
 
   let t14Next = document.querySelector('[data-js="t14-next"]')
   let t14Out = document.querySelector('[data-js="t14-out"]')
 
   t14Next.addEventListener('click', () => {
-    let randomCitat = getRandomInt(matrix.length)
+    let randomCitat = getRandom(0, matrix.length)
+    console.log(randomCitat)
     t14Out.textContent = matrix[randomCitat]
   })
 
@@ -329,5 +328,10 @@ function getRandom(min, max) {
       if (timeFraction < 1) requestAnimationFrame(frame)
     })
   }
+  function getRandom(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min) + min); 
+}
 });
 
